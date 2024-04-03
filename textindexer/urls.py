@@ -14,9 +14,39 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls import path
+from main_app import views
 from django.contrib import admin
 from django.urls import path
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+# Get Schema View for Swagger documentation
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="API Documentation",
+      default_version='v1',
+      description="API documentation for api assignment",
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
+
+# URL patterns for the application
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
+   # Admin URL
+   path('admin/', admin.site.urls),
+
+   # Swagger and Redoc URLs for API documentation
+   path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+   # URL patterns for API endpoints
+   path('users/', views.user_list, name='user-list'),
+   path('paragraphs/', views.ParagraphList.as_view(), name='paragraph-list'),
+   path('search/', views.search_word, name='search-word'),
 ]
