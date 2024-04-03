@@ -1,5 +1,24 @@
 # TextIndexer
 
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [API Endpoints](#api-endpoints)
+5. [Installation Guide](#installation-guide)
+    - [Clone the Repository](#1-clone-the-repository)
+    - [Configure the Database](#2-configure-the-database)
+    - [Install Dependencies](#3-install-dependencies)
+    - [Database Migrations](#4-database-migrations)
+    - [Running the Server](#5-running-the-server)
+    - [Accessing the Application](#6-accessing-the-application)
+6. [Usage Instructions](#usage-instructions)
+    - [Users](#users)
+    - [Paragraphs](#paragraphs)
+    - [Search](#search)
+7. [Contributing](#contributing)
+
 ## Introduction
 This project provides a REST API that allows users to input multiple paragraphs of text, which are then stored in a PostgreSQL database with mappings of words to paragraphs. Users can search for a word, and the API will list the top 10 paragraphs where the word appears. This project is built using Django Rest Framework and is designed with extensibility and best coding practices in mind.
 
