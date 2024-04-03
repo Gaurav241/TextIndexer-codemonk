@@ -21,6 +21,69 @@ This project provides a REST API that allows users to input multiple paragraphs 
 - `/paragraphs/`: Custom API endpoint for listing and creating paragraphs.
 - `/search/`: Custom API endpoint for searching words in paragraphs.
 
+## Installation Guide
+
+Follow these steps to set up the TextIndexer project on your local machine.
+
+### 1) Clone the Repository
+
+- Start by cloning the TextIndexer repository from GitHub to your local machine:
+
+```
+git clone https://github.com/Gaurav241/TextIndexer.git
+```
+
+- Navigate into the cloned repository:
+```
+cd TextIndexer
+```
+
+### 2) Configure the Database
+
+Before running the application, you need to configure the PostgreSQL database in TextIndexer/settings.py. Open this file in your preferred text editor and locate the DATABASES configuration. It should look something like this:
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+Replace your_db_name, your_db_user, and your_db_password with your actual PostgreSQL database name, user, and password. If your database is hosted on a different server or port, update the HOST and PORT accordingly.
+
+### 3) Install Dependencies
+
+Install the project dependencies by running the following command in your terminal:
+```
+pip install -r requirements.txt
+```
+### 4) Database Migrations
+
+With your database configured and dependencies installed, the next step is to apply the database migrations. Run the following commands in your terminal:
+```
+python manage.py migrate
+```
+This command sets up your database schema according to the models defined in the project.
+
+### 5) Running the Server
+
+To start the Django development server, execute:
+```
+python manage.py runserver
+```
+### 6) Accessing the Application
+
+Once the server is running, you can navigate to the Swagger documentation to interact with the API:
+```
+http://127.0.0.1:8000/swagger/
+```
+Here, you will find a UI to test the various API endpoints, such as creating users, inputting paragraphs, and searching for words within those paragraphs.
+
+
 ## Usage Instructions
 
 ### Step-by-Step Guide
